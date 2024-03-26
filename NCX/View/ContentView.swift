@@ -12,6 +12,12 @@ struct ContentView: View {
     @State private var teams : [Team] = []
     @State private var activeCard : Int?
     
+    @State private var playersVM = PlayersVM()
+    @State private var players : [Player] = []
+    
+    @State private var statsVM = StatsVM()
+    @State private var stats : StatsModel?
+    
     @Environment (\.colorScheme) private var scheme
     
     var body: some View {
@@ -81,30 +87,36 @@ struct ContentView: View {
                                 .frame(height: 200)
                             }
                             LazyVStack(spacing:15){
-                                Menu {
-                                    
-                                } label: {
-                                    HStack(spacing:4){
-                                        Text("Filter by")
-                                        Image(systemName: "chevron.down")
-                                    }
-                                    .font(.caption)
-                                    .foregroundStyle(.gray)
-                                }
-                                .frame(maxWidth: .infinity, alignment:.trailing)
-                                ForEach(teams.shuffled()) { team in
-                                    if team.id<=30{
-                                        HStack(spacing:0){
-                                            Text(team.name)
-                                                .bold()
-                                            
-                                            Spacer()
-                                            Text(team.conference)
+                                if players.isEmpty{
+                                    ForEach(teams.shuffled()) { team in
+                                        if team.id<=30{
+                                            HStack(spacing:0){
+                                                Text(team.name)
+                                                    .bold()
+                                                
+                                                Spacer()
+                                                Text(team.conference)
+                                            }
+                                            .font(.title3)
+                                            .padding(.horizontal, 15)
+                                            .padding(.vertical, 6)
                                         }
-                                        .font(.title3)
-                                        .padding(.horizontal, 15)
-                                        .padding(.vertical, 6)
                                     }
+                                } else {
+//                                    ForEach(players, id: \.self) { player in
+//                                    
+//                                            HStack(spacing:0){
+//                                                Text(player.firstName)
+//                                                    .bold()
+//                                                
+//                                                Spacer()
+//                                                Text(player.lastName)
+//                                            }
+//                                            .font(.title3)
+//                                            .padding(.horizontal, 15)
+//                                            .padding(.vertical, 6)
+//                                        
+//                                    }
                                 }
                             }
                             .padding(15)
@@ -137,13 +149,40 @@ struct ContentView: View {
                 }
             }
             .task {
-                //                do {
-                //                    let newTeams = try await teamsVM.getTeams()
-                //                    teams = newTeams.data
-                //                } catch{
-                //                    print(error)
-                //                }
-                loadData()
+//                                do {
+//                                    let newTeams = try await teamsVM.getTeams()
+//                                    teams = newTeams.data
+//                                } catch{
+//                                    print(error)
+//                                }
+                loadTeams(fileName: "teamsPreview.json")
+                
+                do{
+                    let newPlayers = try await playersVM.getPlayers(forTeam: 1)
+                    players = newPlayers
+                    print(players)
+                } catch {
+                    print(error)
+                }
+                //loadTeams(fileName: "playersResponse.json")
+                
+//                do {
+//                    let newStats = try await statsVM.getStats(season: 2023, forPlayer: 15)
+//                    stats = newStats
+//                    if let stats = stats{
+//                        print(stats)
+//                    } else {
+//                        print("NOT found")
+//                    }
+//                } catch {
+//                    print(error)
+//                }
+                do {
+                    let playerStats = try loadPlayerStats(from: "stats.json")
+                    print(playerStats)
+                } catch {
+                    print("Error loading player stats: \(error)")
+                }
             }
             .onAppear{
                 if activeCard == nil {
@@ -158,8 +197,8 @@ struct ContentView: View {
         }
     }
     
-    func loadData() {
-        if let fileURL = Bundle.main.url(forResource: "teamsPreview.json", withExtension: nil) {
+    func loadTeams(fileName:String) {
+        if let fileURL = Bundle.main.url(forResource: fileName, withExtension: nil) {
             do {
                 let data = try Data(contentsOf: fileURL)
                 let teamsData = try JSONDecoder().decode(TeamsModel.self, from: data)
@@ -170,6 +209,22 @@ struct ContentView: View {
         } else {
             print("File not found")
         }
+    }
+    
+    func loadPlayerStats(from filename: String) throws -> [Player] {
+        // Get the URL for the JSON file
+        guard let fileURL = Bundle.main.url(forResource: filename, withExtension: nil) else {
+            throw NSError(domain: "File not found", code: 404, userInfo: nil)
+        }
+        
+        // Load data from the file
+        let data = try Data(contentsOf: fileURL)
+        
+        // Decode the JSON data into an array of PlayerStats objects
+        let decoder = JSONDecoder()
+        let playerStatsArray = try decoder.decode(PlayersModel.self, from: data)
+        
+        return playerStatsArray.data
     }
     
     func backgroundLimitOffset(_ proxy: GeometryProxy)->CGFloat{

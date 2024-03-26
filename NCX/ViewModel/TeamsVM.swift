@@ -8,9 +8,6 @@
 import Foundation
 
 @Observable class TeamsVM {
-    let apiKey = "4e14f650-3034-4877-8abd-d45eb9aa0caa"
-    var teams: [TeamsModel] = []
-    
     enum TeamsError: Error{
         case invalidURL
         case invalidResponse
@@ -36,7 +33,7 @@ import Foundation
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
-        urlRequest.addValue("\(apiKey)", forHTTPHeaderField: "Authorization")
+        urlRequest.addValue("\(Constants.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
             let (data, res) = try await URLSession.shared.data(for: urlRequest)

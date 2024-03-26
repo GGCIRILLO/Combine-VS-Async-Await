@@ -58,7 +58,7 @@ struct TeamCardView: View {
         case "Atlanta Hawks": return Color.red
         case "Boston Celtics": return Color.green
         case "Brooklyn Nets": return Color.black
-        case "Charlotte Hornets": return Color(red: 29/255, green: 17/255, blue: 96/255)
+        case "Charlotte Hornets": return Color.teal
         case "Chicago Bulls": return Color.red
         case "Cleveland Cavaliers": return Color(red: 128/255, green: 0/255, blue: 0/255)
         case "Dallas Mavericks": return Color.blue
