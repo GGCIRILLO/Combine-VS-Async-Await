@@ -16,7 +16,7 @@ import Foundation
         case decodingError(Error)
     }
     
-    func getStats(season: Int, forPlayer playerID: Int) async throws -> StatsModel {
+    func getStats(season: Int, forPlayer playerID: Int) async throws -> [Stats] {
         do {
             let data = try await fetchData(season: season, forPlayer: playerID)
             let stats = try parseStats(data)
@@ -57,10 +57,10 @@ import Foundation
         
     }
     
-    private func parseStats(_ data:Data) throws -> StatsModel {
+    private func parseStats(_ data:Data) throws -> [Stats] {
         do {
             let response = try JSONDecoder().decode(StatsModel.self, from: data)
-            return response
+            return response.data
         } catch {
             throw StatsError.decodingError(error)
         }

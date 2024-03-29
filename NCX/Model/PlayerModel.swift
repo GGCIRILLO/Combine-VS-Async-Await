@@ -7,20 +7,20 @@
 
 import Foundation
 
-struct Player: Codable, Identifiable {
-    let id: Int?
-    let firstName: String?
-    let lastName: String?
-    let position: String?
-    let height: String?
-    let weight: String?
+struct Player: Codable, Identifiable, Hashable {
+    let id: Int
+    let firstName: String
+    let lastName: String
+    let position: String
+    let height: String
+    let weight: String
     let jerseyNumber: String?
-    let college: String?
-    let country: String?
+    let college: String
+    let country: String
     let draftYear: Int?
     let draftRound: Int?
     let draftNumber: Int?
-    let team: Team?
+    let team: Team
     
     private enum CodingKeys: String, CodingKey {
         case firstName = "first_name"

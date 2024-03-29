@@ -11,7 +11,7 @@ struct TeamsModel: Codable {
     var data: [Team]
 }
 
-struct Team: Codable, Identifiable {
+struct Team: Codable, Identifiable, Hashable {
     var id: Int
     var abbreviation: String
     var city: String

@@ -13,17 +13,45 @@
 		E600AF882BB0CA6A0095D634 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E600AF872BB0CA6A0095D634 /* Preview Assets.xcassets */; };
 		E600AF8F2BB0CE120095D634 /* TeamsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600AF8E2BB0CE120095D634 /* TeamsVM.swift */; };
 		E600AF952BB0CEC30095D634 /* TeamsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600AF942BB0CEC30095D634 /* TeamsModel.swift */; };
-		E600AF972BB1B54D0095D634 /* teamsPreview.json in Resources */ = {isa = PBXBuildFile; fileRef = E600AF962BB1B54D0095D634 /* teamsPreview.json */; };
 		E600AF992BB1C82B0095D634 /* TeamCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600AF982BB1C82B0095D634 /* TeamCardView.swift */; };
 		E600AF9D2BB1DE530095D634 /* CustomScrollBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600AF9C2BB1DE530095D634 /* CustomScrollBehaviour.swift */; };
 		E600AF9F2BB306400095D634 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600AF9E2BB306400095D634 /* PlayerModel.swift */; };
 		E600AFA12BB306750095D634 /* PlayersVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600AFA02BB306750095D634 /* PlayersVM.swift */; };
 		E600AFA32BB3096F0095D634 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600AFA22BB3096F0095D634 /* Constants.swift */; };
-		E600AFA82BB310C20095D634 /* playersResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E600AFA72BB310C20095D634 /* playersResponse.json */; };
+		E600AFA82BB310C20095D634 /* ATL.json in Resources */ = {isa = PBXBuildFile; fileRef = E600AFA72BB310C20095D634 /* ATL.json */; };
 		E600AFAA2BB3172B0095D634 /* PlayerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600AFA92BB3172B0095D634 /* PlayerCardView.swift */; };
 		E600AFAC2BB31CEA0095D634 /* StatsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600AFAB2BB31CEA0095D634 /* StatsVM.swift */; };
 		E600AFAE2BB31D460095D634 /* StatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600AFAD2BB31D460095D634 /* StatsModel.swift */; };
-		E600AFB02BB32CB30095D634 /* stats.json in Resources */ = {isa = PBXBuildFile; fileRef = E600AFAF2BB32CB30095D634 /* stats.json */; };
+		E69D33502BB462FF007CB2D1 /* BOS.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D334F2BB462FF007CB2D1 /* BOS.json */; };
+		E69D33532BB464FF007CB2D1 /* PlayerStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D33522BB464FF007CB2D1 /* PlayerStatsView.swift */; };
+		E69D33552BB46840007CB2D1 /* BKN.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33542BB46840007CB2D1 /* BKN.json */; };
+		E69D33572BB46A4D007CB2D1 /* CHA.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33562BB46A4D007CB2D1 /* CHA.json */; };
+		E69D33742BB46BCF007CB2D1 /* MEM.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D335A2BB46BCF007CB2D1 /* MEM.json */; };
+		E69D33752BB46BCF007CB2D1 /* MIL.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D335B2BB46BCF007CB2D1 /* MIL.json */; };
+		E69D33762BB46BCF007CB2D1 /* GSW.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D335C2BB46BCF007CB2D1 /* GSW.json */; };
+		E69D33772BB46BCF007CB2D1 /* TOR.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D335D2BB46BCF007CB2D1 /* TOR.json */; };
+		E69D33792BB46BCF007CB2D1 /* POR.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D335F2BB46BCF007CB2D1 /* POR.json */; };
+		E69D337A2BB46BCF007CB2D1 /* ORL.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33602BB46BCF007CB2D1 /* ORL.json */; };
+		E69D337B2BB46BCF007CB2D1 /* SAS.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33612BB46BCF007CB2D1 /* SAS.json */; };
+		E69D337C2BB46BCF007CB2D1 /* UTA.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33622BB46BCF007CB2D1 /* UTA.json */; };
+		E69D337D2BB46BCF007CB2D1 /* LAC.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33632BB46BCF007CB2D1 /* LAC.json */; };
+		E69D337E2BB46BCF007CB2D1 /* DET.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33642BB46BCF007CB2D1 /* DET.json */; };
+		E69D337F2BB46BCF007CB2D1 /* MIA.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33652BB46BCF007CB2D1 /* MIA.json */; };
+		E69D33802BB46BCF007CB2D1 /* PHX.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33662BB46BCF007CB2D1 /* PHX.json */; };
+		E69D33812BB46BCF007CB2D1 /* PHI.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33672BB46BCF007CB2D1 /* PHI.json */; };
+		E69D33822BB46BCF007CB2D1 /* DAL.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33682BB46BCF007CB2D1 /* DAL.json */; };
+		E69D33832BB46BD0007CB2D1 /* IND.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33692BB46BCF007CB2D1 /* IND.json */; };
+		E69D33842BB46BD0007CB2D1 /* NOP.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D336A2BB46BCF007CB2D1 /* NOP.json */; };
+		E69D33852BB46BD0007CB2D1 /* LAL.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D336B2BB46BCF007CB2D1 /* LAL.json */; };
+		E69D33862BB46BD0007CB2D1 /* HOU.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D336C2BB46BCF007CB2D1 /* HOU.json */; };
+		E69D33872BB46BD0007CB2D1 /* CLE.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D336D2BB46BCF007CB2D1 /* CLE.json */; };
+		E69D33882BB46BD0007CB2D1 /* MIN.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D336E2BB46BCF007CB2D1 /* MIN.json */; };
+		E69D33892BB46BD0007CB2D1 /* WAS.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D336F2BB46BCF007CB2D1 /* WAS.json */; };
+		E69D338A2BB46BD0007CB2D1 /* NYK.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33702BB46BCF007CB2D1 /* NYK.json */; };
+		E69D338B2BB46BD0007CB2D1 /* DEN.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33712BB46BCF007CB2D1 /* DEN.json */; };
+		E69D338C2BB46BD0007CB2D1 /* OKC.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33722BB46BCF007CB2D1 /* OKC.json */; };
+		E69D338D2BB46BD0007CB2D1 /* SAC.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33732BB46BCF007CB2D1 /* SAC.json */; };
+		E69D338F2BB48297007CB2D1 /* CHI.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D338E2BB48297007CB2D1 /* CHI.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,18 +62,46 @@
 		E600AF872BB0CA6A0095D634 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E600AF8E2BB0CE120095D634 /* TeamsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsVM.swift; sourceTree = "<group>"; };
 		E600AF942BB0CEC30095D634 /* TeamsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsModel.swift; sourceTree = "<group>"; };
-		E600AF962BB1B54D0095D634 /* teamsPreview.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teamsPreview.json; sourceTree = "<group>"; };
 		E600AF982BB1C82B0095D634 /* TeamCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCardView.swift; sourceTree = "<group>"; };
 		E600AF9C2BB1DE530095D634 /* CustomScrollBehaviour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollBehaviour.swift; sourceTree = "<group>"; };
 		E600AF9E2BB306400095D634 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		E600AFA02BB306750095D634 /* PlayersVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersVM.swift; sourceTree = "<group>"; };
 		E600AFA22BB3096F0095D634 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E600AFA42BB30B010095D634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E600AFA72BB310C20095D634 /* playersResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = playersResponse.json; sourceTree = "<group>"; };
+		E600AFA72BB310C20095D634 /* ATL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ATL.json; sourceTree = "<group>"; };
 		E600AFA92BB3172B0095D634 /* PlayerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCardView.swift; sourceTree = "<group>"; };
 		E600AFAB2BB31CEA0095D634 /* StatsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsVM.swift; sourceTree = "<group>"; };
 		E600AFAD2BB31D460095D634 /* StatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsModel.swift; sourceTree = "<group>"; };
-		E600AFAF2BB32CB30095D634 /* stats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stats.json; sourceTree = "<group>"; };
+		E69D334F2BB462FF007CB2D1 /* BOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BOS.json; sourceTree = "<group>"; };
+		E69D33522BB464FF007CB2D1 /* PlayerStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsView.swift; sourceTree = "<group>"; };
+		E69D33542BB46840007CB2D1 /* BKN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BKN.json; sourceTree = "<group>"; };
+		E69D33562BB46A4D007CB2D1 /* CHA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CHA.json; sourceTree = "<group>"; };
+		E69D335A2BB46BCF007CB2D1 /* MEM.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MEM.json; sourceTree = "<group>"; };
+		E69D335B2BB46BCF007CB2D1 /* MIL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MIL.json; sourceTree = "<group>"; };
+		E69D335C2BB46BCF007CB2D1 /* GSW.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GSW.json; sourceTree = "<group>"; };
+		E69D335D2BB46BCF007CB2D1 /* TOR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TOR.json; sourceTree = "<group>"; };
+		E69D335F2BB46BCF007CB2D1 /* POR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = POR.json; sourceTree = "<group>"; };
+		E69D33602BB46BCF007CB2D1 /* ORL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ORL.json; sourceTree = "<group>"; };
+		E69D33612BB46BCF007CB2D1 /* SAS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SAS.json; sourceTree = "<group>"; };
+		E69D33622BB46BCF007CB2D1 /* UTA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UTA.json; sourceTree = "<group>"; };
+		E69D33632BB46BCF007CB2D1 /* LAC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LAC.json; sourceTree = "<group>"; };
+		E69D33642BB46BCF007CB2D1 /* DET.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DET.json; sourceTree = "<group>"; };
+		E69D33652BB46BCF007CB2D1 /* MIA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MIA.json; sourceTree = "<group>"; };
+		E69D33662BB46BCF007CB2D1 /* PHX.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PHX.json; sourceTree = "<group>"; };
+		E69D33672BB46BCF007CB2D1 /* PHI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PHI.json; sourceTree = "<group>"; };
+		E69D33682BB46BCF007CB2D1 /* DAL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DAL.json; sourceTree = "<group>"; };
+		E69D33692BB46BCF007CB2D1 /* IND.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IND.json; sourceTree = "<group>"; };
+		E69D336A2BB46BCF007CB2D1 /* NOP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NOP.json; sourceTree = "<group>"; };
+		E69D336B2BB46BCF007CB2D1 /* LAL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LAL.json; sourceTree = "<group>"; };
+		E69D336C2BB46BCF007CB2D1 /* HOU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HOU.json; sourceTree = "<group>"; };
+		E69D336D2BB46BCF007CB2D1 /* CLE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CLE.json; sourceTree = "<group>"; };
+		E69D336E2BB46BCF007CB2D1 /* MIN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MIN.json; sourceTree = "<group>"; };
+		E69D336F2BB46BCF007CB2D1 /* WAS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WAS.json; sourceTree = "<group>"; };
+		E69D33702BB46BCF007CB2D1 /* NYK.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NYK.json; sourceTree = "<group>"; };
+		E69D33712BB46BCF007CB2D1 /* DEN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DEN.json; sourceTree = "<group>"; };
+		E69D33722BB46BCF007CB2D1 /* OKC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OKC.json; sourceTree = "<group>"; };
+		E69D33732BB46BCF007CB2D1 /* SAC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SAC.json; sourceTree = "<group>"; };
+		E69D338E2BB48297007CB2D1 /* CHI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CHI.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +136,7 @@
 			children = (
 				E600AFA42BB30B010095D634 /* Info.plist */,
 				E600AF802BB0CA690095D634 /* NCXApp.swift */,
-				E600AF962BB1B54D0095D634 /* teamsPreview.json */,
-				E600AFAF2BB32CB30095D634 /* stats.json */,
-				E600AFA72BB310C20095D634 /* playersResponse.json */,
+				E69D33512BB46305007CB2D1 /* Json Data */,
 				E600AF902BB0CE170095D634 /* View */,
 				E600AF912BB0CE1E0095D634 /* Model */,
 				E600AF922BB0CE280095D634 /* ViewModel */,
@@ -106,6 +160,7 @@
 				E600AF822BB0CA690095D634 /* ContentView.swift */,
 				E600AF982BB1C82B0095D634 /* TeamCardView.swift */,
 				E600AFA92BB3172B0095D634 /* PlayerCardView.swift */,
+				E69D33522BB464FF007CB2D1 /* PlayerStatsView.swift */,
 				E600AF9C2BB1DE530095D634 /* CustomScrollBehaviour.swift */,
 			);
 			path = View;
@@ -130,6 +185,43 @@
 				E600AFAB2BB31CEA0095D634 /* StatsVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E69D33512BB46305007CB2D1 /* Json Data */ = {
+			isa = PBXGroup;
+			children = (
+				E600AFA72BB310C20095D634 /* ATL.json */,
+				E69D334F2BB462FF007CB2D1 /* BOS.json */,
+				E69D33542BB46840007CB2D1 /* BKN.json */,
+				E69D33562BB46A4D007CB2D1 /* CHA.json */,
+				E69D338E2BB48297007CB2D1 /* CHI.json */,
+				E69D336D2BB46BCF007CB2D1 /* CLE.json */,
+				E69D33682BB46BCF007CB2D1 /* DAL.json */,
+				E69D33712BB46BCF007CB2D1 /* DEN.json */,
+				E69D33642BB46BCF007CB2D1 /* DET.json */,
+				E69D335C2BB46BCF007CB2D1 /* GSW.json */,
+				E69D336C2BB46BCF007CB2D1 /* HOU.json */,
+				E69D33692BB46BCF007CB2D1 /* IND.json */,
+				E69D33632BB46BCF007CB2D1 /* LAC.json */,
+				E69D336B2BB46BCF007CB2D1 /* LAL.json */,
+				E69D335A2BB46BCF007CB2D1 /* MEM.json */,
+				E69D33652BB46BCF007CB2D1 /* MIA.json */,
+				E69D335B2BB46BCF007CB2D1 /* MIL.json */,
+				E69D336E2BB46BCF007CB2D1 /* MIN.json */,
+				E69D336A2BB46BCF007CB2D1 /* NOP.json */,
+				E69D33702BB46BCF007CB2D1 /* NYK.json */,
+				E69D33722BB46BCF007CB2D1 /* OKC.json */,
+				E69D33602BB46BCF007CB2D1 /* ORL.json */,
+				E69D33672BB46BCF007CB2D1 /* PHI.json */,
+				E69D33662BB46BCF007CB2D1 /* PHX.json */,
+				E69D335F2BB46BCF007CB2D1 /* POR.json */,
+				E69D33732BB46BCF007CB2D1 /* SAC.json */,
+				E69D33612BB46BCF007CB2D1 /* SAS.json */,
+				E69D335D2BB46BCF007CB2D1 /* TOR.json */,
+				E69D33622BB46BCF007CB2D1 /* UTA.json */,
+				E69D336F2BB46BCF007CB2D1 /* WAS.json */,
+			);
+			path = "Json Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,11 +282,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E600AF972BB1B54D0095D634 /* teamsPreview.json in Resources */,
+				E69D33862BB46BD0007CB2D1 /* HOU.json in Resources */,
+				E69D337C2BB46BCF007CB2D1 /* UTA.json in Resources */,
+				E69D338A2BB46BD0007CB2D1 /* NYK.json in Resources */,
+				E69D33872BB46BD0007CB2D1 /* CLE.json in Resources */,
+				E69D338F2BB48297007CB2D1 /* CHI.json in Resources */,
+				E69D33842BB46BD0007CB2D1 /* NOP.json in Resources */,
+				E69D33552BB46840007CB2D1 /* BKN.json in Resources */,
+				E69D33892BB46BD0007CB2D1 /* WAS.json in Resources */,
+				E69D338D2BB46BD0007CB2D1 /* SAC.json in Resources */,
 				E600AF882BB0CA6A0095D634 /* Preview Assets.xcassets in Resources */,
+				E69D337D2BB46BCF007CB2D1 /* LAC.json in Resources */,
 				E600AF852BB0CA6A0095D634 /* Assets.xcassets in Resources */,
-				E600AFA82BB310C20095D634 /* playersResponse.json in Resources */,
-				E600AFB02BB32CB30095D634 /* stats.json in Resources */,
+				E69D337B2BB46BCF007CB2D1 /* SAS.json in Resources */,
+				E69D33822BB46BCF007CB2D1 /* DAL.json in Resources */,
+				E69D337F2BB46BCF007CB2D1 /* MIA.json in Resources */,
+				E69D337E2BB46BCF007CB2D1 /* DET.json in Resources */,
+				E69D338C2BB46BD0007CB2D1 /* OKC.json in Resources */,
+				E69D33572BB46A4D007CB2D1 /* CHA.json in Resources */,
+				E69D33812BB46BCF007CB2D1 /* PHI.json in Resources */,
+				E600AFA82BB310C20095D634 /* ATL.json in Resources */,
+				E69D33792BB46BCF007CB2D1 /* POR.json in Resources */,
+				E69D33852BB46BD0007CB2D1 /* LAL.json in Resources */,
+				E69D33772BB46BCF007CB2D1 /* TOR.json in Resources */,
+				E69D33802BB46BCF007CB2D1 /* PHX.json in Resources */,
+				E69D33502BB462FF007CB2D1 /* BOS.json in Resources */,
+				E69D33882BB46BD0007CB2D1 /* MIN.json in Resources */,
+				E69D33762BB46BCF007CB2D1 /* GSW.json in Resources */,
+				E69D337A2BB46BCF007CB2D1 /* ORL.json in Resources */,
+				E69D33742BB46BCF007CB2D1 /* MEM.json in Resources */,
+				E69D338B2BB46BD0007CB2D1 /* DEN.json in Resources */,
+				E69D33752BB46BCF007CB2D1 /* MIL.json in Resources */,
+				E69D33832BB46BD0007CB2D1 /* IND.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E69D33532BB464FF007CB2D1 /* PlayerStatsView.swift in Sources */,
 				E600AF992BB1C82B0095D634 /* TeamCardView.swift in Sources */,
 				E600AF832BB0CA690095D634 /* ContentView.swift in Sources */,
 				E600AF8F2BB0CE120095D634 /* TeamsVM.swift in Sources */,

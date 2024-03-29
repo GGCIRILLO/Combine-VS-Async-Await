@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StatsModel: Codable {
+struct Stats: Codable {
     let pts: Double
     let ast: Double
     let turnover: Double
@@ -34,4 +34,8 @@ struct StatsModel: Codable {
     enum CodingKeys: String, CodingKey {
         case pts, ast, turnover, pf, fga, fgm, fta, ftm, fg3a, fg3m, reb, oreb, dreb, stl, blk, fgPct = "fg_pct", fg3Pct = "fg3_pct", ftPct = "ft_pct", min, gamesPlayed = "games_played", playerId = "player_id", season
     }
+}
+
+struct StatsModel: Codable {
+    let data : [Stats]
 }
