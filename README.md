@@ -199,7 +199,7 @@ Then we declare some properties:
 ```
 Then there is the `fetchTeams()` method.  It is responsible for initiating the process of fetching teams data from the remote API. It calls the `getTeams()` method of the `teamsService`, which returns a publisher that emits a `TeamsModel` object or an `error`.
 The method uses Combine operators to handle the publisher's output:
-- `**.receive(on: DispatchQueue.main)**`: This operator specifies that subsequent operations should occur on the main thread, ensuring that UI updates are performed on the main thread.
+- **`.receive(on: DispatchQueue.main)`**: This operator specifies that subsequent operations should occur on the main thread, ensuring that UI updates are performed on the main thread.
 
 
 
