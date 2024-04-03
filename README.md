@@ -184,10 +184,10 @@ return URLSession.shared.dataTaskPublisher(for: urlRequest)
 Now, let's move to our View Model.
 The `TeamsVMCombine` class is our view model and it is annotatds with `@Observable`. This implies that instances of this class are observable objects, allowing SwiftUI views to observe and react to changes in its properties.
 Then we declare some properties: 
-- `**private var cancellables = Set<AnyCancellable>()**`: This property is a set to hold Combine cancellable objects, which are responsible for canceling subscriptions to publishers when they are no longer needed. It's marked as private to encapsulate its access within the class.
-- `**private let teamsService = TeamsService()**`: This property holds an instance of TeamsService, which is responsible for fetching teams data from the remote API.
-- `**var teams: [Team] = []**`: This property holds an array of Team objects fetched from the API. It's initialized as an empty array.
-- `**var errorMessage: String?**`: This optional property holds an error message string if an error occurs during the API request.
+- **`private var cancellables = Set<AnyCancellable>()`**: This property is a set to hold Combine cancellable objects, which are responsible for canceling subscriptions to publishers when they are no longer needed. It's marked as private to encapsulate its access within the class.
+- **`private let teamsService = TeamsService()`**: This property holds an instance of TeamsService, which is responsible for fetching teams data from the remote API.
+- **`var teams: [Team] = []`**: This property holds an array of Team objects fetched from the API. It's initialized as an empty array.
+- **`var errorMessage: String?`**: This optional property holds an error message string if an error occurs during the API request.
 ```swift
 @Observable class TeamsVMCombine {
         private var cancellables = Set<AnyCancellable>()
