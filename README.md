@@ -92,6 +92,98 @@ private func parseTeamsResponse(_ data:Data) throws -> TeamsModel {
         }
     }
 ```
+Overall, this code efficiently handles asynchronous network requests, parsing JSON responses, and error handling to provide a robust mechanism for fetching NBA team data from the BallDontLie API. The same approach is used for players and stats. 
+
+### How did I used this data in a view?
+You need to call the function just written as a task, but how? First we will declare an instance of the class `TeamVM` and a `teams` empty array, both marked as a `@State`, a property wrapper type that can read and write a value managed by SwiftUI.
+``` swift
+@State private var teamsVM = TeamsVM()
+@State private var teams : [Team] = []
+```
+Then just perform the function in a task:
+``` swift
+.task {
+    // Async/Await
+    do {
+        let newTeams = try await teamsVM.getTeams()
+        teams = newTeams.data
+        // Look at the Json file and App Models for further explanation about this assegnation
+    } catch{
+        print(error)
+    }
+}
+```
+Job is done! You can now easily use the data thanks to the teams array taht will contain all the `teams` in this case. For example: 
+``` swift
+ForEach(teams) { team in
+    Text(team.fullName)
+}
+```
+### Combine 
+The Combine framework is a powerful framework introduced by Apple, starting with iOS 13, that provides a declarative Swift API for processing values over time. It enables you to work with asynchronous and event-based code in a more functional and reactive manner.
+
+At its core, Combine revolves around three main components:
+1. **Publishers**: Publishers represent a sequence of values over time. They can emit values of a specific type, including asynchronous events such as network requests, user input, timers, and notifications.
+2. **Operators**: Operators are methods that allow you to transform, filter, or combine values emitted by publishers. Operators can be chained together to create complex data processing pipelines.
+3. **Subscribers**: Subscribers receive and react to values emitted by publishers. They define what should happen when a new value is produced, including updating UI, performing side effects, or forwarding values to other publishers.
+
+Here it's how Combine works with Api calls: [Medium Article](https://medium.com/@itsachin523/api-calls-with-ios-combine-cb917f9b4a62).
+
+### How did I implemented it? 
+First we need to create a service to make API calls. `TeamsService` is the class responsible for fetching teams data from a remote API. It defines an `enum TeamsError` to represent various error cases that might occur during the API request and response handling.
+The `getTeams()` method returns a publisher that emits a `TeamsModel` object or an error (`Error`). It's annotated with `-> AnyPublisher<TeamsModel, Error>`, indicating that it returns a publisher with a generic value of `TeamsModel` and an error of `Error`.
+``` swift
+func getTeams() -> AnyPublisher<TeamsModel, Error> {
+    // Code logic here
+}
+```
+First thing first, in the function, it constructs the URL for the API endpoint (`https://api.balldontlie.io/v1/teams`). If the URL construction fails, it returns a publisher with a failure using `Fail(error:)`.
+``` swift
+guard let url = URL(string: "https://api.balldontlie.io/v1/teams") else {
+            return Fail(error: TeamsError.invalidURL).eraseToAnyPublisher()
+    }
+```
+It then creates a `URLRequest` with the constructed URL, sets the HTTP method to GET, and adds an authorization header using the provided API key.
+``` swift
+var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlRequest.addValue("\(Constants.apiKey)", forHTTPHeaderField: "Authorization")
+``` 
+The method uses `URLSession.shared.dataTaskPublisher(for:)` to create a publisher for performing the network request. It then processes the response data using various Combine operators: 
+- **tryMap**: Maps the `(Data, URLResponse)` tuple to just the `Data`, throwing an error if the response is not of type `HTTPURLResponse` or if the status code is not 200.
+- **decode**: Decodes the received data into a `TeamsModel` object using `JSONDecoder`.
+- **mapError**: Maps any errors encountered during the process to `TeamsError.networkError` if they are not already of type `TeamsError`.
+- **eraseToAnyPublisher**: Erases the type of the publisher to `AnyPublisher<TeamsModel, Error>` to hide implementation details and ensure type safety.
+Finally, the method returns the resulting publisher.
+``` swift
+return URLSession.shared.dataTaskPublisher(for: urlRequest)
+            .tryMap { data, response in
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    throw TeamsError.invalidResponse
+                }
+                
+                guard httpResponse.statusCode == 200 else {
+                    throw TeamsError.invalidStatusCode(httpResponse.statusCode)
+                }
+                
+                return data
+            }
+            .decode(type: TeamsModel.self, decoder: JSONDecoder())
+            .mapError { error in
+                if let teamsError = error as? TeamsError {
+                    return teamsError
+                } else {
+                    return TeamsError.networkError(error)
+                }
+            }
+            .eraseToAnyPublisher()
+    } // closing the function
+} // closing the class
+```
+
+
+
+
 
 
 
