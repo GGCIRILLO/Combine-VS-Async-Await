@@ -22,6 +22,8 @@
 		E600AFAA2BB3172B0095D634 /* PlayerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600AFA92BB3172B0095D634 /* PlayerCardView.swift */; };
 		E600AFAC2BB31CEA0095D634 /* StatsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600AFAB2BB31CEA0095D634 /* StatsVM.swift */; };
 		E600AFAE2BB31D460095D634 /* StatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600AFAD2BB31D460095D634 /* StatsModel.swift */; };
+		E653C7AB2BBD7E3900F4721D /* TeamsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653C7AA2BBD7E3900F4721D /* TeamsService.swift */; };
+		E653C7AD2BBD812D00F4721D /* TeamsVMCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653C7AC2BBD812D00F4721D /* TeamsVMCombine.swift */; };
 		E69D33502BB462FF007CB2D1 /* BOS.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D334F2BB462FF007CB2D1 /* BOS.json */; };
 		E69D33532BB464FF007CB2D1 /* PlayerStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69D33522BB464FF007CB2D1 /* PlayerStatsView.swift */; };
 		E69D33552BB46840007CB2D1 /* BKN.json in Resources */ = {isa = PBXBuildFile; fileRef = E69D33542BB46840007CB2D1 /* BKN.json */; };
@@ -72,6 +74,8 @@
 		E600AFA92BB3172B0095D634 /* PlayerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCardView.swift; sourceTree = "<group>"; };
 		E600AFAB2BB31CEA0095D634 /* StatsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsVM.swift; sourceTree = "<group>"; };
 		E600AFAD2BB31D460095D634 /* StatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsModel.swift; sourceTree = "<group>"; };
+		E653C7AA2BBD7E3900F4721D /* TeamsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsService.swift; sourceTree = "<group>"; };
+		E653C7AC2BBD812D00F4721D /* TeamsVMCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsVMCombine.swift; sourceTree = "<group>"; };
 		E69D334F2BB462FF007CB2D1 /* BOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BOS.json; sourceTree = "<group>"; };
 		E69D33522BB464FF007CB2D1 /* PlayerStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsView.swift; sourceTree = "<group>"; };
 		E69D33542BB46840007CB2D1 /* BKN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BKN.json; sourceTree = "<group>"; };
@@ -183,8 +187,18 @@
 				E600AF8E2BB0CE120095D634 /* TeamsVM.swift */,
 				E600AFA02BB306750095D634 /* PlayersVM.swift */,
 				E600AFAB2BB31CEA0095D634 /* StatsVM.swift */,
+				E653C7A92BBD7E0800F4721D /* Combine */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E653C7A92BBD7E0800F4721D /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				E653C7AA2BBD7E3900F4721D /* TeamsService.swift */,
+				E653C7AC2BBD812D00F4721D /* TeamsVMCombine.swift */,
+			);
+			path = Combine;
 			sourceTree = "<group>";
 		};
 		E69D33512BB46305007CB2D1 /* Json Data */ = {
@@ -324,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E653C7AB2BBD7E3900F4721D /* TeamsService.swift in Sources */,
 				E69D33532BB464FF007CB2D1 /* PlayerStatsView.swift in Sources */,
 				E600AF992BB1C82B0095D634 /* TeamCardView.swift in Sources */,
 				E600AF832BB0CA690095D634 /* ContentView.swift in Sources */,
@@ -337,6 +352,7 @@
 				E600AFA32BB3096F0095D634 /* Constants.swift in Sources */,
 				E600AFAA2BB3172B0095D634 /* PlayerCardView.swift in Sources */,
 				E600AFAE2BB31D460095D634 /* StatsModel.swift in Sources */,
+				E653C7AD2BBD812D00F4721D /* TeamsVMCombine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

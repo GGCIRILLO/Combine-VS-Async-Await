@@ -16,13 +16,16 @@ struct ContentView: View {
     @State private var players : [Player] = []
     @State private var activePlayers : [Player] = []
     
+    //Combine
+    //var teamsCombine =  TeamsVMCombine()
     
     @Environment (\.colorScheme) private var scheme
     
     var body: some View {
         NavigationView {
             VStack {
-                if teams.isEmpty{
+               if teams.isEmpty{
+                    //if teamsCombine.teams.isEmpty{
                     Spacer()
                     VStack {
                         ProgressView()
@@ -53,6 +56,7 @@ struct ContentView: View {
                                     ScrollView(.horizontal){
                                         LazyHStack(spacing: 0){
                                             ForEach(teams) { team in
+                                        //  ForEach(teamsCombine.teams) { team in
                                                 if team.id<=30 {
                                                     ZStack{
                                                         if minY==75.0{
@@ -130,12 +134,21 @@ struct ContentView: View {
                 }
             }
             .task {
+                // Async/Await
                 do {
                     let newTeams = try await teamsVM.getTeams()
                     teams = newTeams.data
                 } catch{
                     print(error)
                 }
+                
+                
+                // Combine:
+//                teamsCombine.fetchTeams()
+//                if let errorMessage = teamsCombine.errorMessage {
+//                    print(errorMessage)
+//                }
+                
                 loadPlayers("ATL.json")
                 activePlayers = players
                 for i in 1...29 {
@@ -163,8 +176,8 @@ struct ContentView: View {
             do {
                 let data = try Data(contentsOf: fileURL)
                 let decoder = JSONDecoder()
-                let playersA = try decoder.decode(PlayersModel.self, from: data)
-                players.append(contentsOf: playersA.data)
+                let playersArr = try decoder.decode(PlayersModel.self, from: data)
+                players.append(contentsOf: playersArr.data)
             } catch {
                 print("Error loading data: \(error)")
             }
