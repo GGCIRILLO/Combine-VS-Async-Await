@@ -37,5 +37,61 @@ This prevents blocking the main thread and keeps the app responsive.
 4. **Error Handling**: Async/await simplifies error handling by allowing you to use `try`, `catch`, and `throw` keywords just like in synchronous code.
 If an asynchronous operation throws an error, you can catch it using a `do-catch` block.
 
+### How did I implemented it? 
+The `TeamsVM` class is responsible for fetching NBA team data from the BallDontLie API. It utilizes the async/await pattern to perform asynchronous operations and handle potential errors that may occur during the process. The `@Observable` macro is typically used in SwiftUI to mark properties as observable, allowing SwiftUI to update views based on changes to the observable properties that a view’s body reads instead of any property changes that occur to an observable object, which can help improve your app’s performance.
+
+The `getTeams()` function is the entry point for fetching team data. It calls the `fetchData()` function to retrieve raw data from the API endpoint. If successful, it then calls the `parseTeamsResponse()` function to decode the data into a `TeamsModel` object containing the relevant team information. Any errors encountered during these steps are propagated using Swift's error handling mechanism. 
+``` swift
+func getTeams () async throws -> TeamsModel {
+        do {
+            let data = try await fetchData()
+            let teams = try parseTeamsResponse(data)
+            return teams
+        } catch {
+            throw error
+        }
+    }
+
+```
+In the `fetchData()` function, a URLRequest is created with the API endpoint URL and necessary headers, including the API key. The URLSession is then used to asynchronously fetch data from the provided URL. Upon receiving the response, it checks for HTTP status code 200 to ensure a successful response. If any errors occur during the network request or parsing, appropriate errors are thrown to be handled by the caller.
+``` swift
+private func fetchData() async throws -> Data {
+        guard let url = URL(string: "https://api.balldontlie.io/v1/teams") else {
+            throw TeamsError.invalidURL
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlRequest.addValue("\(Constants.apiKey)", forHTTPHeaderField: "Authorization")
+        
+        do {
+            let (data, res) = try await URLSession.shared.data(for: urlRequest)
+
+            guard let httpResponse = res as? HTTPURLResponse else {
+                throw TeamsError.invalidResponse
+            }
+
+            guard httpResponse.statusCode == 200 else {
+                throw TeamsError.invalidStatusCode(httpResponse.statusCode)
+            }
+
+            return data
+        } catch {
+            throw TeamsError.networkError(error)
+        }
+    }
+```
+Finally, the `parseTeamsResponse()` function decodes the received data into a `TeamsModel` object using JSONDecoder. Any decoding errors are caught and rethrown as `TeamsError.decodingError`.
+``` swift
+private func parseTeamsResponse(_ data:Data) throws -> TeamsModel {
+        do {
+            let teams = try JSONDecoder().decode(TeamsModel.self, from: data)
+            return teams
+        } catch {
+            throw TeamsError.decodingError(error)
+        }
+    }
+```
+
 
 
