@@ -200,9 +200,50 @@ Then we declare some properties:
 Then there is the `fetchTeams()` method.  It is responsible for initiating the process of fetching teams data from the remote API. It calls the `getTeams()` method of the `teamsService`, which returns a publisher that emits a `TeamsModel` object or an `error`.
 The method uses Combine operators to handle the publisher's output:
 - **`.receive(on: DispatchQueue.main)`**: This operator specifies that subsequent operations should occur on the main thread, ensuring that UI updates are performed on the main thread.
+- **`.sink(receiveCompletion:receiveValue:)`**: This operator subscribes to the publisher and defines closures to handle completion events and emitted values.
+- **`receiveCompletion`**: This closure handles completion events, such as success or failure. In case of failure, it sets the `errorMessage` property to the localized description of the error.
+- **`receiveValue`**: This closure handles emitted values from the publisher, in this case, the fetched teams data. It assigns the `teams` property to the array of teams extracted from the received `TeamsModel` object.
+- **`.store(in: &cancellables)`**: This operator stores the subscription in the `cancellables` set, ensuring that it remains active and can be canceled when necessary.
+```swift
+func fetchTeams() {
+            teamsService.getTeams()
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .failure(let error):
+                        self.errorMessage = error.localizedDescription
+                    case .finished:
+                        break
+                    }
+                }, receiveValue: { teams in
+                    self.teams = teams.data
+                })
+                .store(in: &cancellables)
+        }
+```
+This code demonstrates how to use Combine to fetch data asynchronously from a remote API, handle the response, and update properties accordingly.
 
-
-
+### How did I used this data in a view?
+As we did before, we have to call the function inside a task, but this time is not needed to use a `do-catch`, since the error are returned in the ViewModel. We should handle the error in a view, maybe with an error message. Anyways, the process is like the async/await one. We declare an instance of the `TeamsVMCombine` class and it will contains the `teams` array. It would have been an `@ObservedObject`, but since we are adopting the `@Observable` we don't need anymore this property wrapper. 
+```swift
+var teamsCombine =  TeamsVMCombine()
+```
+Then we call the func `fetchTeams()` and use the data in the view (if everything goes well!!). 
+```swift
+.task { 
+        teamsCombine.fetchTeams()
+        if let errorMessage = teamsCombine.errorMessage {
+        print(errorMessage)
+}
+```
+```swift
+ForEach(teamsCombine.teams) { team in
+     Text(team.fullName)
+}
+```
+## Issues Encountered
+While implementing the app, I encountered an issue with the BallDontLie API. Despite successfully testing the API calls using Postman, fetching season averages and player for each team resulted in a 401 (unauthorized) error. In the API documentation is written that the free version can make 30 request/minute and I'm making just one (get all the teams). Moreover, the season averages request is only for the current regular season and that was what I was making. As a workaround, player data was loaded from JSON files directly imported into the app, even knowing that is not an optimal solution. 
+If anyone has experienced a similar situation with the BallDontLie API (or others) or has insights into resolving the 401 error when fetching season averages and player, any assistance would be greatly appreciated. Please reach me out if you have any suggestions or solutions.
 
 
 
