@@ -11,7 +11,7 @@ This iOS app is built using the BallDontLie API to retrieve NBA teams, players, 
 - Every data is taken thanks to the [BallDontLie api](https://new.balldontlie.io). It were used the Combine framework and the Async/Await protocol
 
 ## Demo
-<img src="./images/screen1.png" alt="first screen" width="300"/><img src="./images/screen12.png" alt="second screen" width="300"/>
+<img src="./images/screen1.png" alt="first screen" width="300"/><img src="./images/screen2.png" alt="second screen" width="300"/>
 
 ## API Call Comparison
 
