@@ -10,6 +10,9 @@ This iOS app is built using the BallDontLie API to retrieve NBA teams, players, 
 - Horizontal scrolling to switch between teams with magnetic effect
 - Every data is taken thanks to the [BallDontLie api](https://new.balldontlie.io). It were used the Combine framework and the Async/Await protocol
 
+## Demo
+<img src="./images/screen1.png" alt="first scren" width="300"/>
+
 ## API Call Comparison
 
 ### Async/Await Protocol
